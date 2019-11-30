@@ -1,6 +1,6 @@
-<h1> [CS470_project_version2] <br>Image captioning using BERT and Bottom-up, Top-down Attention </h1>
+<h1> Image captioning using BERT and Bottom-up, Top-down Attention </h1>
 
-This is a PyTorch implementation of <a href=http://www.panderson.me/up-down-attention> Bottom-up and Top-down Attention for Image Captioning</a> with <a href=https://arxiv.org/pdf/1810.04805.pdf> BERT</a>. Training and evaluation is done on the MSCOCO Image captioning challenge dataset. Bottom up features for MSCOCO dataset are extracted using Faster R-CNN object detection model trained on Visual Genome dataset. Pretrained bottom-up features are downloaded from <a href =https://github.com/peteanderson80/bottom-up-attention>here</a>.Modifications made to the original model:
+This is a PyTorch implementation of <a href=http://www.panderson.me/up-down-attention> Bottom-up and Top-down Attention for Image Captioning</a> with <a href=https://arxiv.org/pdf/1810.04805.pdf> BERT</a>. Training and evaluation is done on the MSCOCO Image captioning challenge dataset. Bottom up features for MSCOCO dataset are extracted using Faster R-CNN object detection model trained on Visual Genome dataset. Pretrained bottom-up features are downloaded from <a href =https://github.com/peteanderson80/bottom-up-attention>here</a>. Modifications made to the original model:
 <ul>
   <li> ReLU activation instead of Tanh gate in Attention model</li>
   <li> Discriminative supervision in addition to cross-entropy loss</li>
