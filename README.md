@@ -1,4 +1,4 @@
-<h1> [CS470_project_version2] Image captioning using BERT and Bottom-up, Top-down Attention </h1>
+<h1> [CS470_project_version2] <br>Image captioning using BERT and Bottom-up, Top-down Attention </h1>
 
 This is a PyTorch implementation of <a href=http://www.panderson.me/up-down-attention> Bottom-up and Top-down Attention for Image Captioning</a> with <a href=https://arxiv.org/pdf/1810.04805.pdf> BERT</a>. Training and evaluation is done on the MSCOCO Image captioning challenge dataset. Bottom up features for MSCOCO dataset are extracted using Faster R-CNN object detection model trained on Visual Genome dataset. Pretrained bottom-up features are downloaded from <a href =https://github.com/peteanderson80/bottom-up-attention>here</a>.Modifications made to the original model:
 <ul>
@@ -59,7 +59,9 @@ python create_final.ipynb
 This command will create the following files -
 
 A JSON file for each split containing the order in which to load the bottom up image features so that they are in lockstep with the captions loaded by the dataloader.
+
 A cache file for each split with a list of N_c * I encoded captions, where N_c is the number of captions sampled per image. These captions are in the same order as the images in the HDF5 file. Therefore, the ith caption will correspond to the i // N_cth image.
+
 A JSON file for each split with a list of N_c * I caption lengths. The ith value is the length of the ith caption, which corresponds to the i // N_cth image.
 
 <br>
@@ -98,7 +100,9 @@ The metrics reported are ones used most often in relation to image captioning an
 <h2>References</h2>
 
 Code adapted with thanks from https://github.com/sgrvinod/a-PyTorch-Tutorial-to-Image-Captioning, 
+
 Basic code adapted with thanks from https://github.com/poojahira/image-captioning-bottom-up-top-down/, 
+
 Bert basic code adapted with thanks from https://github.com/huggingface/transformers
 
 Evaluation code adapted from https://github.com/Maluuba/nlg-eval/tree/master/nlgeval
