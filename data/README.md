@@ -1,0 +1,1 @@
+http://cs.stanford.edu/people/karpathy/deepimagesent/caption_datasets.zip 다운받아서 폴더명으로 압축풀기
