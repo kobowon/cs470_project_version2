@@ -35,7 +35,7 @@ Next type this command in a python 2 environment:
 python bottom-up_features/tsv.py
 ```
 
-This command will create the following files (6 files) - 
+This command will create the following files (6 files) - train36.hdf5, val36.hdf5,train_ids.pkl,val_ids.pkl,train36_imgid2idx.pkl,val36_imgid2idx.pkl
 <ul>
 <li>An HDF5 file containing the bottom up image features for train and val splits, 36 per image for each split, in an I, 36, 2048 tensor where I is the number of images in the split.</li>
 <li>PKL files that contain training and validation image IDs mapping to index in HDF5 dataset created above.</li>
@@ -60,10 +60,15 @@ This command will create the following files -
 
 A JSON file for each split containing the order in which to load the bottom up image features so that they are in lockstep with the captions loaded by the dataloader.
 
+<b>File name : TRAIN_GENOME_DETS_preprocessed_coco.json, VAL_GENOME_DETS_preprocessed_coco.json, TEST_GENOME_DETS_preprocessed_coco.json</b>
+
 A cache file for each split with a list of N_c * I encoded captions, where N_c is the number of captions sampled per image. These captions are in the same order as the images in the HDF5 file. Therefore, the ith caption will correspond to the i // N_cth image.
+
+<b>File name : cached_TRAIN_Caption, cached_VAL_Caption, cached_TEST_Caption</b>
 
 A JSON file for each split with a list of N_c * I caption lengths. The ith value is the length of the ith caption, which corresponds to the i // N_cth image.
 
+<b>File name : TRAIN_CAPLENS_preprocessed_coco.json, VAL_CAPLENS_preprocessed_coco.json, TEST_CAPLENS_preprocessed_coco.json</b>
 <br>
 
 
