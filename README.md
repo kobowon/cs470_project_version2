@@ -23,13 +23,16 @@ Download the MSCOCO <a target = "_blank" href="http://images.cocodataset.org/zip
 Also download Andrej Karpathy's <a target = "_blank" href=http://cs.stanford.edu/people/karpathy/deepimagesent/caption_datasets.zip>training, validation, and test splits</a>. This zip file contains the captions. And put the zip file in <b>"cs470_project_version2/data/"</b> and unzip.
 
 <br>
+
 ***
+
 Next, download the <a target = "_blank" href="https://imagecaption.blob.core.windows.net/imagecaption/trainval_36.zip">bottom up image features</a>.
 
 Unzip the folder and place unzipped folder in <b>"cs470_project_version2/bottom-up_features/"</b> folder.  
 
 <br>
 ***
+
 Next type this command in a python 2 environment: 
 ```bash
 python bottom-up_features/tsv.py
@@ -45,6 +48,7 @@ Move these six files to the folder <b>"cs470_project_version2/preprocessed_data/
 
 <br>
 ***
+
 Next, execute script  named <b>'cs470_project_version2/example/download_glue.py'</b> to download glue data to use BERT
 ```bash
 python download_glue.py --data_dir glue_data --tasks all
@@ -52,6 +56,7 @@ python download_glue.py --data_dir glue_data --tasks all
 
 <br>
 ***
+
 Next, execute jupyter file named <b>'cs470_project_version2/data/create_final.ipynb'</b> 
 ```bash
 python create_final.ipynb
