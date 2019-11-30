@@ -82,9 +82,14 @@ The dataset used for learning and evaluation is the MSCOCO Image captioning chal
 
 Weight normalization was found to prevent the model from overfitting and is used liberally for all fully connected layers.
 
-Gradients are clipped during training to prevent gradient explosion that is not uncommon with LSTMs. The attention dimensions, word embedding dimension and hidden dimensions of the LSTMs are set to 1024.
+Gradients are clipped during training to prevent gradient explosion that is not uncommon with LSTMs.
 
-Dropout is set to 0.5. Batch size is set to 100. 36 pretrained bottom-up feature maps per image are used as input to the Top-down Attention model. The Adamax optimizer is used with a learning rate of 2e-3. Early stopping is employed if the BLEU-4 score of the validation set shows no improvement over 20 epochs.
+The attention dimensions, and hidden dimensions of the LSTMs are set to <b>384 because of resouce limitation</b> (<a target = "_blank" href=https://github.com/poojahira/image-captioning-bottom-up-top-down/>original</a> : batch is 1024).
+
+The word embedding dimension is set to 768 for BERT (<a target = "_blank" href=https://github.com/poojahira/image-captioning-bottom-up-top-down/>original</a> is 1024)
+
+
+Dropout is set to 0.5. Batch size is set to <b>20 because of resouce limitation</b> (<a target = "_blank" href=https://github.com/poojahira/image-captioning-bottom-up-top-down/>original</a> : batch is 100). 36 pretrained bottom-up feature maps per image are used as input to the Top-down Attention model. The Adamax optimizer is used with a learning rate of 2e-3. Early stopping is employed if the BLEU-4 score of the validation set shows no improvement over 20 epochs.
 
 
 <h2> Evaluation </h2>
