@@ -23,13 +23,13 @@ Download the MSCOCO <a target = "_blank" href="http://images.cocodataset.org/zip
 Also download Andrej Karpathy's <a target = "_blank" href=http://cs.stanford.edu/people/karpathy/deepimagesent/caption_datasets.zip>training, validation, and test splits</a>. This zip file contains the captions. And put the zip file in <b>"cs470_project_version2/data/"</b> and unzip.
 
 <br>
-
+***
 Next, download the <a target = "_blank" href="https://imagecaption.blob.core.windows.net/imagecaption/trainval_36.zip">bottom up image features</a>.
 
 Unzip the folder and place unzipped folder in <b>"cs470_project_version2/bottom-up_features/"</b> folder.  
 
 <br>
-
+***
 Next type this command in a python 2 environment: 
 ```bash
 python bottom-up_features/tsv.py
@@ -44,14 +44,14 @@ This command will create the following files (6 files) - train36.hdf5, val36.hdf
 Move these six files to the folder <b>"cs470_project_version2/preprocessed_data/"</b>
 
 <br>
-
+***
 Next, execute script  named <b>'cs470_project_version2/example/download_glue.py'</b> to download glue data to use BERT
 ```bash
 python download_glue.py --data_dir glue_data --tasks all
 ```
 
 <br>
-
+***
 Next, execute jupyter file named <b>'cs470_project_version2/data/create_final.ipynb'</b> 
 ```bash
 python create_final.ipynb
@@ -70,7 +70,7 @@ A JSON file for each split with a list of N_c * I caption lengths. The ith value
 
 <b>File name : TRAIN_CAPLENS_preprocessed_coco.json, VAL_CAPLENS_preprocessed_coco.json, TEST_CAPLENS_preprocessed_coco.json</b>
 <br>
-
+***
 
 Next, download <a target = "_blank" href=https://github.com/poojahira/image-captioning-bottom-up-top-down/tree/master/nlg-eval-master>nlg_eval_master folder</a> and place this file on <b>'cs470_project_version2/experiment/'</b> folder and type the following two commands at the folder position in command:
 ```bash
@@ -78,6 +78,7 @@ pip install -e .
 nlg-eval --setup
 ```
 This will install all the files needed for evaluation.
+***
 
 <h2> Training </h2>
 
@@ -96,7 +97,7 @@ The word embedding dimension is set to 768 for BERT (<a target = "_blank" href=h
 
 Dropout is set to 0.5. Batch size is set to <b>20 because of resouce limitation</b> (<a target = "_blank" href=https://github.com/poojahira/image-captioning-bottom-up-top-down/>original</a> : batch is 100). 36 pretrained bottom-up feature maps per image are used as input to the Top-down Attention model. The Adamax optimizer is used with a learning rate of 2e-3. Early stopping is employed if the BLEU-4 score of the validation set shows no improvement over 20 epochs.
 
-
+***
 <h2> Evaluation </h2>
 
 To evaluate the model on the karpathy test split, edit the <b>'cs470_project_version2/model_evaluation.ipynb'</b> file to include the model checkpoint location
@@ -106,7 +107,8 @@ and execute 'model_training.ipynb':
 Beam search is used to generate captions during evaluation. Beam search iteratively considers the set of the k best sentences up to time t as candidates to generate sentences of size t + 1, and keeps only the resulting best k of them. A beam search of five is used for inference.
 
 The metrics reported are ones used most often in relation to image captioning and include BLEU-4, CIDEr, METEOR and ROUGE-L. Official MSCOCO evaluation scripts are used for measuring these scores.
-  
+
+***
 <h2>References</h2>
 
 Code adapted with thanks from https://github.com/sgrvinod/a-PyTorch-Tutorial-to-Image-Captioning, 
