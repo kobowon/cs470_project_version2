@@ -1,0 +1,68 @@
+--- /notebooks/project_cs470/cs470_tp/models/decoder_with_attention_final.py
++++ /notebooks/project_cs470/cs470_tp/models/decoder_with_attention_final.py
+@@ -41,9 +41,8 @@
+ 
+         #bowon
+         #self.embedding = nn.Embedding(vocab_size, embed_dim)  # embedding layer
+-        self.embedding = self.model.bert.embeddings.to(device)
+-        #self.embedding = self.model.bert.to(device)
+-        self.bert_encoder = self.model.bert.encoder.layer[0].to(device)
++        #self.embedding = self.model.bert.embeddings.to(device)
++        self.embedding = self.model.bert.to(device)
+         
+         self.dropout = nn.Dropout(p=self.dropout)
+         self.top_down_attention = nn.LSTMCell(embed_dim + features_dim + decoder_dim, decoder_dim, bias=True) # top down attention LSTMCell
+@@ -88,13 +87,19 @@
+         image_features_mean = image_features.mean(1).to(device)  # (batch_size, num_pixels, encoder_dim)
+ 
+         # Sort input data by decreasing lengths; why? apparent below
+-       
++        
++        #print(encoded_captions)
++        
+         caption_lengths, sort_ind = caption_lengths.squeeze(1).sort(dim=0, descending=True)
+-
++        #print("sort_ind : ",sort_ind)
++        #print("caption_lengths : ",caption_lengths)
++        
+         image_features = image_features[sort_ind]
+         image_features_mean = image_features_mean[sort_ind]
+         
+-
++        #이걸 구현해야 함 - 완료
++        #encoded_captions = encoded_captions[sort_ind]
++        
+         input_ids_tensor = []
+         attention_mask_tensor = []
+         token_type_ids_tensor = []
+@@ -127,25 +132,13 @@
+                             'token_type_ids':inputs['token_type_ids']}
+         
+         bert_inputs = {'input_ids': input_ids_tensor,
+-                       'attention_mask':attention_mask_tensor,
+-                       'token_type_ids':token_type_ids_tensor,}
+-        
++                                 'attention_mask':attention_mask_tensor,
++                                 'token_type_ids':token_type_ids_tensor,
++        }
+         
+         #embeddings = self.embedding(**embedding_inputs)
+-        embeddings_output = self.embedding(**embedding_inputs)
+-        embeddings_output = embeddings_output.type(torch.FloatTensor).to(device)
+-        
+-        
+-        extended_attention_mask = attention_mask_tensor.unsqueeze(1).unsqueeze(2).type(torch.FloatTensor).to(device)
+-        encoder_inputs = {'hidden_states':embeddings_output,
+-                          'attention_mask':extended_attention_mask,}
+-        
+-        layer_outputs = self.bert_encoder(**encoder_inputs)
+-
+-        embeddings = layer_outputs[0]
+-        
+-        #output = self.embedding(**bert_inputs)
+-        #embeddings = output[0]
++        output = self.embedding(**bert_inputs)
++        embeddings = output[0] #.to(device)
+         #print(embeddings.size())
+         
+         

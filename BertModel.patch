@@ -1,0 +1,9 @@
+--- /notebooks/project_cs470/cs470_tp/transformers/modeling_bert.py
++++ /notebooks/project_cs470/cs470_tp/transformers/modeling_bert.py
+@@ -95,5 +95,5 @@
+         #bowonko 
+         #sequence_output이 [CLS] [S1_W1] [S1_W2] ... [SEP] ... [S2_W1] [S2_W2] ... 에 대한 hidden state를 의미함 - BertModel의 outputs[0]
+         outputs = (sequence_output, pooled_output,) + encoder_outputs[1:]  # add hidden_states and attentions if they are here
+-        return # sequence_output, pooled_output, (hidden_states), (attentions)
++        return outputs  # sequence_output, pooled_output, (hidden_states), (attentions)
+ 
