@@ -73,14 +73,11 @@ A JSON file for each split with a list of N_c * I caption lengths. The ith value
 <br>
 ***
 
-Next, download pretrained model (checkpoint file) at the link
+Next, download pretrained model (checkpoint file) at the google drive link https://drive.google.com/drive/folders/16M4gjlfBWLpySwFoL8eMD_qGUd7EEyZd?usp=sharing <b>dd</b>
 
 ckpt name : BERT_3.pth.tar
 
 and place the checkpoint file in <b>'cs470_project_version2/ckpt/'</b>
-
-
-
 
 
 Next, download java 1.8 and <a target = "_blank" href=https://github.com/poojahira/image-captioning-bottom-up-top-down/tree/master/nlg-eval-master>nlg_eval_master folder</a> and place this file on <b>'cs470_project_version2/experiment/'</b> folder and type the following two commands at the folder position in command:
@@ -91,7 +88,11 @@ nlg-eval --setup
 This will install all the files needed for evaluation.
 ***
 
+
+
 <h2> Training </h2>
+
+<b>You can check A@5 performance during training :)</b>
 
 To train the bottom-up top down model from scratch, go to <b>'cs470_project_version2/'</b> folder and execute 'model_training.ipynb':
 
