@@ -73,7 +73,17 @@ A JSON file for each split with a list of N_c * I caption lengths. The ith value
 <br>
 ***
 
-Next, download <a target = "_blank" href=https://github.com/poojahira/image-captioning-bottom-up-top-down/tree/master/nlg-eval-master>nlg_eval_master folder</a> and place this file on <b>'cs470_project_version2/experiment/'</b> folder and type the following two commands at the folder position in command:
+Next, download pretrained model (checkpoint file) at the link
+
+ckpt name : BERT_3.pth.tar
+
+and place the checkpoint file in <b>'cs470_project_version2/ckpt/'</b>
+
+
+
+
+
+Next, download java 1.8 and <a target = "_blank" href=https://github.com/poojahira/image-captioning-bottom-up-top-down/tree/master/nlg-eval-master>nlg_eval_master folder</a> and place this file on <b>'cs470_project_version2/experiment/'</b> folder and type the following two commands at the folder position in command:
 ```bash
 pip install -e .
 nlg-eval --setup
